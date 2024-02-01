@@ -10,7 +10,10 @@ function App () {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <button id='login-button'> Log in with Spotify</button>
+        <div className='App-buttons'>
+          <button id='login-button'> Log in with Spotify</button>
+          <button id='logout-button'> Logout</button>
+        </div>
       </div>
     );
 }

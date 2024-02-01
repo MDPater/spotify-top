@@ -29,6 +29,12 @@ window.onload = function() {
         return urlObject.toString();
     }
 
+    //clear localStorage
+    function logout(){
+        localStorage.clear();
+        window.location.reload();
+    }
+
     //authorize with Spotify API
     function redirectToSpotifyAuthEndpoint(){
         const codeVerifier = generateRandomString(64);
@@ -103,7 +109,7 @@ window.onload = function() {
 
     //fetch User top Songs, Artists
     function getUserData(){
-
+        console.log("Auth complete");
     }
 
     //get from Spotify app dashboard
@@ -127,4 +133,5 @@ window.onload = function() {
     }
 
     document.getElementById('login-button').addEventListener('click', redirectToSpotifyAuthEndpoint);
+    document.getElementById('logout-button').addEventListener('click', logout);
 }
