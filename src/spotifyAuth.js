@@ -48,11 +48,34 @@ window.onload = function() {
         //if authorized URL will return with code in response
     }
 
+    //fetch Spotify API access_token from generated code_verifier
+    async function exchangeToken(code){
+        const code_verifier = localStorage.getItem('code_verifier');
+
+        const params = new URLSearchParams();
+            params.append("client_id", client_id);
+            params.append("grant_type", "authorization_code");
+            params.append("code", code);
+            params.append("redirect_uri", redirect_uri);
+            params.append("code_verifier", code_verifier);
+        
+        const result = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            },
+            body: params
+        })
+
+        const {access_token} = await result.json();
+        return access_token;
+    }
+
     //get from Spotify app dashboard
     const client_id = '532eacb714ff45edafb79a2253c51666';
-    const _uri = 'http://localhost:3000';
+    const redirect_uri = 'http://localhost:3000';
     //encoded uri string, if not encoded uri doesnt work because special characters
-    const redirect_uri = encodeURIComponent(_uri);
+    //const _uri = encodeURIComponent(redirect_uri);
 
     //Restore API tokens from localstorage or assign null
     let access_token = localStorage.getItem('access_token') || null;
@@ -65,6 +88,7 @@ window.onload = function() {
 
     if (code){
         //Authorized and ready to get access_token
+        exchangeToken(code)
     }
 
     document.getElementById('login-button').addEventListener('click', redirectToSpotifyAuthEndpoint);
