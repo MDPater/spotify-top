@@ -129,7 +129,11 @@ window.onload = function() {
         //Authorized and ready to get access_token
         exchangeToken(code)
     } else if(access_token && refresh_token && expires_at){
+        //user logged in
         getUserData();
+    }else{
+        //not logged in
+        
     }
 
     document.getElementById('login-button').addEventListener('click', redirectToSpotifyAuthEndpoint);
