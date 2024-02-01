@@ -97,6 +97,13 @@ window.onload = function() {
         localStorage.setItem('access_token', access_token);
         localStorage.setItem('refresh_token', refresh_token);
         localStorage.setItem('expires_at', expires_at);
+
+        getUserData();
+    }
+
+    //fetch User top Songs, Artists
+    function getUserData(){
+
     }
 
     //get from Spotify app dashboard
@@ -116,7 +123,7 @@ window.onload = function() {
         //Authorized and ready to get access_token
         exchangeToken(code)
     } else if(access_token && refresh_token && expires_at){
-
+        getUserData();
     }
 
     document.getElementById('login-button').addEventListener('click', redirectToSpotifyAuthEndpoint);
