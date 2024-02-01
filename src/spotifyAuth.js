@@ -49,7 +49,7 @@ window.onload = function() {
     }
 
     //fetch Spotify API access_token from generated code_verifier
-    async function exchangeToken(code){
+    function exchangeToken(code){
         const code_verifier = localStorage.getItem('code_verifier');
 
         const params = new URLSearchParams();
@@ -59,23 +59,49 @@ window.onload = function() {
             params.append("redirect_uri", redirect_uri);
             params.append("code_verifier", code_verifier);
         
-        const result = await fetch('https://accounts.spotify.com/api/token', {
+        fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
             },
             body: params
         })
+        .then(addThrowErrorToFetch)
+        .then((data) => {
+            tokenResponse(data);
+            
+            //clear search query
+            window.history.replaceState({}, document.title, '/');
+        })
+    }
 
-        const {access_token} = await result.json();
-        return access_token;
+    //check for fetch error
+    async function addThrowErrorToFetch(response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw { response, error: await response.json() };
+        }
+    }
+
+    //get Auth token from fetch response
+    function tokenResponse(data){
+        console.log(data);
+
+        access_token = data.access_token;
+        refresh_token = data.refresh_token;
+
+        const t = new Date();
+        expires_at = t.setSeconds(t.getSeconds() + data.expires_in);
+
+        localStorage.setItem('access_token', access_token);
+        localStorage.setItem('refresh_token', refresh_token);
+        localStorage.setItem('expires_at', expires_at);
     }
 
     //get from Spotify app dashboard
     const client_id = '532eacb714ff45edafb79a2253c51666';
     const redirect_uri = 'http://localhost:3000';
-    //encoded uri string, if not encoded uri doesnt work because special characters
-    //const _uri = encodeURIComponent(redirect_uri);
 
     //Restore API tokens from localstorage or assign null
     let access_token = localStorage.getItem('access_token') || null;
@@ -89,6 +115,8 @@ window.onload = function() {
     if (code){
         //Authorized and ready to get access_token
         exchangeToken(code)
+    } else if(access_token && refresh_token && expires_at){
+
     }
 
     document.getElementById('login-button').addEventListener('click', redirectToSpotifyAuthEndpoint);
