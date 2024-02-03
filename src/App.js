@@ -11,14 +11,14 @@ function App () {
           <h2>Welcome to React</h2>
         </div>
         <div className='login'>
-          <button id='login-button'>Log in with Spotify</button>
+            <button id='login-button' onClick="redirectToSpotifyAuthEndpoint()">Log in with Spotify</button>
+            <button id='logout-button' onClick="logout">Logout</button>
         </div>
         <div id='loggedin'>
           <div id='results'>
             <div id='tracks'></div>
             <div id='artists'></div>
           </div>
-          <button id='logout-button'>Logout</button>
         </div>
       </div>
     );

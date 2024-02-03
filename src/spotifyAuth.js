@@ -1,3 +1,5 @@
+import UserData from "./spotify/getUserData";
+
 window.onload = function() {
     //generate code_verifier String for Auth
     function generateRandomString(length){
@@ -108,8 +110,8 @@ window.onload = function() {
     }
 
     //fetch User top Songs, Artists
-    function getUserData(){
-        console.log("Auth complete");
+    async function getUserData(){
+        UserData();
     }
 
     //get from Spotify app dashboard
