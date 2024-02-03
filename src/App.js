@@ -7,18 +7,17 @@ function App () {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h3>This Web App will show you your Top 10 listened to Tracks/Artists from the last 4 Weeks</h3>
         </div>
         <div className='login'>
             <button id='login-button' onClick="redirectToSpotifyAuthEndpoint()">Log in with Spotify</button>
             <button id='logout-button' onClick="logout">Logout</button>
         </div>
-        <div id='loggedin'>
-          <div id='results'>
-            <div id='tracks'></div>
-            <div id='artists'></div>
-          </div>
+        <div className='Center'>
+        <span id='loggedin'>
+          <ul id='tracks'></ul>
+          <ul id='artists'></ul>
+        </span>
         </div>
       </div>
     );

@@ -1,5 +1,10 @@
+body{
+  background-color: #222;
+}
+
 .App {
   text-align: center;
+  color: white;
 }
 
 .App-logo {
@@ -9,9 +14,31 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  height: 50px;
+  padding-top: 50px;
   color: white;
+}
+
+.Center{
+  text-align: center;
+}
+
+ul{
+  list-style-type: none;
+  display: inline-block;
+  text-align: left;
+
+}
+
+li{
+  padding: 50px
+}
+
+img{
+  border-radius: 20%;
+}
+h3{
+  text-align: center;
 }
 
 .login{
