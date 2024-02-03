@@ -116,7 +116,7 @@ window.onload = function() {
 
     //get from Spotify app dashboard
     const client_id = '532eacb714ff45edafb79a2253c51666';
-    const redirect_uri = 'http://localhost:3000';
+    const redirect_uri = 'https://spotifytop10.web.app';
 
     //Restore API tokens from localstorage or assign null
     let access_token = localStorage.getItem('access_token') || null;
