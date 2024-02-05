@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 .firebase
-.github/workflows
 
 # testing
 /coverage
