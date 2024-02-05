@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './spotifyAuth.js'
 import './App.css';
 
@@ -18,6 +17,7 @@ function App () {
             <ul id='tracks'></ul>
             <ul id='artists'></ul>
           </span>
+          <h4>Made by Max de Pater</h4>
         </div>
       </div>
     );

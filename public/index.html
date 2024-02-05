@@ -6,6 +6,24 @@
     <title>SpotifyTop10</title>
   </head>
   <body>
+    <script>
+      var preview = new Audio()
+      var isPlaying = false;
+
+      function playPreview(url){
+        if(isPlaying == false){
+          isPlaying = true;
+          preview.pause();
+          preview = new Audio(url);
+          preview.currentTime = 20;
+          preview.play();
+          setTimeout(function(){isPlaying = false}, 10000)
+        }else{
+          isPlaying = false;
+          preview.pause();
+        }
+    }
+    </script>
     <div id="root"></div>
     <script src="spotifyAuth.js" type="module"></script>
   </body>
