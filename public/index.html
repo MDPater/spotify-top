@@ -15,7 +15,7 @@
           isPlaying = true;
           preview.pause();
           preview = new Audio(url);
-          preview.currentTime = 20;
+          preview.currentTime = 0;
           preview.play();
           setTimeout(function(){isPlaying = false}, 10000)
         }else{
