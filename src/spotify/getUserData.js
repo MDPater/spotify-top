@@ -12,8 +12,8 @@ const UserData = async function(){
     //functions to render Result data to HTML
     function trackTemplate(){
         var temp_url = '';
-        temp_url += "<h3>Tracks</h3>"
-        var html = track_list.map(function (item) {
+        temp_url += "<h2>Tracks</h2>"
+        track_list.map(function (item) {
             temp_url += `<li>
                     <div>
                         <img src="${item.album.images[0].url}" width="150" height="150">
@@ -27,9 +27,9 @@ const UserData = async function(){
         return tracks.innerHTML = temp_url
     }
 
-    function artistTemplate(data){
+    function artistTemplate(){
         var temp_url = '';
-        temp_url += "<h3>Artists</h3>"
+        temp_url += "<h2>Artists</h2>"
         var html = artist_list.map(function (item) {
             temp_url += `<li>
                     <div>

@@ -1,5 +1,6 @@
 body{
   background-color: #222;
+  padding: 10px;
 }
 
 .App {
@@ -7,16 +8,20 @@ body{
   color: white;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 50px;
-  padding-top: 50px;
+  padding-top: 15px;
   color: white;
+}
+
+.loggedin{
+  width: 50%;
+  padding: 20px;
+}
+
+.login{
+  margin: 5px;
 }
 
 .Center{
@@ -24,25 +29,25 @@ body{
 }
 
 ul{
+  padding: 5px;
   list-style-type: none;
   display: inline-block;
-  text-align: left;
-
 }
 
 li{
-  padding: 50px
+  margin: 5px;
+}
+
+p{
+  text-overflow: ellipsis;
 }
 
 img{
   border-radius: 20%;
 }
-h3{
-  text-align: center;
-}
 
-.login{
-  padding: 20px;
+h2{
+  text-align: center;
 }
 
 button {
