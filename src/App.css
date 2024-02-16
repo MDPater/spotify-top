@@ -39,7 +39,9 @@ li{
 }
 
 p{
-  text-overflow: ellipsis;
+  width: 150px;
+  height: 50px;
+  text-overflow: inherit;
 }
 
 img{

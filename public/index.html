@@ -11,17 +11,11 @@
       var isPlaying = false;
 
       function playPreview(url){
-        if(isPlaying == false){
-          isPlaying = true;
-          preview.pause();
-          preview = new Audio(url);
-          preview.currentTime = 0;
-          preview.play();
-          setTimeout(function(){isPlaying = false}, 30000)
-        }else{
-          isPlaying = false;
-          preview.pause();
-        }
+        isPlaying = true;
+        preview.pause();
+        preview = new Audio(url);
+        preview.currentTime = 20;
+        preview.play();
     }
     </script>
     <div id="root"></div>
